@@ -3,7 +3,7 @@
 - **Kubernetes (K8s)** is an open-source container orchestration platform.
 - It automates the deployment, scaling, and management of containerized applications.
 - Originally developed by Google, now maintained by the Cloud Native Computing Foundation (CNCF).
-- It groups containers into **Pods**, runs them on **Nodes** (machines), and manages a **Cluster** (a set of nodes).
+- It groups containers into **Pods**, runs them on **[[Node]]s** (machines), and manages a **[[Cluster]]** (a set of nodes).
 - Key features:
   - **Self-healing**: restarts failed containers, replaces and reschedules containers when nodes die.
   - **Scaling**: horizontal scaling (add/remove replicas automatically based on load).
