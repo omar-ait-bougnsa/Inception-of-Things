@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ngenix
+  labels:
+    app: ngenix
+spec:
+  containers:
+  - name: ngenix-container
+    image: nginx
+    ports:
+    - containerPort: 80
+  - name : sidecar
+    image: curlimages/curl
+    command: ["/bin/sh"]
+    args: ["-c", "while true; do echo hello from sidecar; sleep 10; done"]
+

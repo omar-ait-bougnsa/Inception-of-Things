@@ -1,0 +1,19 @@
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: synergychat-api
+  template:
+    metadata:
+      labels:
+        app: synergychat-api
+    spec:
+      containers:
+      - name: synergychat-api
+        image: docker.io/bootdotdev/synergychat-api:latest
+        env:
+        - name: API_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: synergychat-api-configmap
+              key: API_PORT

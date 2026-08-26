@@ -6,18 +6,20 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure("2") do |config|
+
   config.vm.define "oait-bou" do |oait_bou|
-    config.vm.box = "bento/ubuntu-24.04"
+    oait_bou.vm.box = "bento/ubuntu-24.04"
     oait_bou.vm.hostname = "oait-bouS"
     oait_bou.vm.network "private_network", ip: "192.168.56.110"
-    config.vm.provider "virtualbox" do |vb|
+    oait_bou.vm.provider "virtualbox" do |vb|
       vb.memory = 512
       vb.cpus = 1
     end
-    oait_bou.vm.provision "shell", inline: <<-SHELL
-  curl -sfL https://get.k3s.io | sh -
-  SHELL
+    oait_bou.vm.provision "file", source: "~/.ssh/id_ed25519.pub", destination: "/tmp/id_ed25519.pub"
+    oait_bou.vm.provision "shell", path: "scripts/install_k3s.sh"
+    oait_bou.vm.provision "shell", path: "scripts/install_ssh_keys.sh"
   end
+
   config.vm.define "vm2" do |vm2|
     vm2.vm.box = "bento/ubuntu-24.04"
     vm2.vm.hostname = "oait-bouSW"
@@ -26,9 +28,9 @@ Vagrant.configure("2") do |config|
       vb.memory = 512
       vb.cpus = 1
     end
-    vm2.vm.provision "shell", inline: <<-SHELL
-  curl -sfL https://get.k3s.io | sh -
-  SHELL
+    vm2.vm.provision "file", source: "~/.ssh/id_ed25519.pub", destination: "/tmp/id_ed25519.pub"
+    vm2.vm.provision "shell", path: "scripts/install_k3s.sh"
+    vm2.vm.provision "shell", path: "scripts/install_ssh_keys.sh"
   end
 end
   # Disable automatic box update checking. If you disable this, then
