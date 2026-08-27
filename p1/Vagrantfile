@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
       vb.cpus = 1
     end
     oait_bou.vm.provision "file", source: "~/.ssh/id_ed25519.pub", destination: "/tmp/id_ed25519.pub"
-    oait_bou.vm.provision "shell", path: "scripts/install_k3s.sh"
+    oait_bou.vm.provision "shell", path: "scripts/server.sh"
     oait_bou.vm.provision "shell", path: "scripts/install_ssh_keys.sh"
   end
 
@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
       vb.cpus = 1
     end
     vm2.vm.provision "file", source: "~/.ssh/id_ed25519.pub", destination: "/tmp/id_ed25519.pub"
-    vm2.vm.provision "shell", path: "scripts/install_k3s.sh"
+    vm2.vm.provision "shell", path: "scripts/worker.sh"
     vm2.vm.provision "shell", path: "scripts/install_ssh_keys.sh"
   end
 end
