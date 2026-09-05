@@ -1,12 +1,12 @@
-Log created: 2026-08-26T15:14:46.391656000Z
-Process ID:  15730 (0x3d72)
-Parent PID:  14898 (0x3a32)
+Log created: 2026-09-02T13:39:14.265674000Z
+Process ID:  33371 (0x825b)
+Parent PID:  32629 (0x7f75)
 Executable:  /usr/lib/virtualbox/VBoxHeadless
 Arg[0]: /usr/lib/virtualbox/VBoxHeadless
 Arg[1]: --comment
-Arg[2]: p1_oait-bou_1787682879358_38461
+Arg[2]: p2_oait-bou_1787845422789_96811
 Arg[3]: --startvm
-Arg[4]: 077fbc25-d206-4d05-a623-d0f96f0e4ce0
+Arg[4]: 94db403a-e44f-421a-9439-de0cc9a893de
 Arg[5]: --vrde
 Arg[6]: config
 E1000 #0: port=d010 mmio=00000000e4200000 mac-cfg=08:00:27:f8:c2:eb 82540EM R0
@@ -19,11 +19,11 @@ Interrupt registers ------------------------------------------------------------
     ICR=00000000     ITR=000000c3     ICS=00000000     IMS=0000009d     IMC=00000000
 Receive registers ------------------------------------------------------------------
    RCTL=00008002  PSRCTL=00040402   FCRTL=00000000   FCRTH=00000000  RXDCTL=00000000
-  RDBAL=059a1000   RDBAH=00000000   RDLEN=00001000     RDH=00000075     RDT=00000073
+  RDBAL=03c37000   RDBAH=00000000   RDLEN=00001000     RDH=0000000e     RDT=0000000c
    RDTR=00000000    RADV=00000008   RSRPD=00000000  RXCSUM=00000200   RFCTL=00000000
 Transmit registers -----------------------------------------------------------------
    TCTL=0103f0fa    TIPG=00602008    AIFS=00000000
-  TDBAL=1c374000   TDBAH=00000000   TDLEN=00001000     TDH=00000039     TDT=00000039
+  TDBAL=04f80000   TDBAH=00000000   TDLEN=00001000     TDH=000000a9     TDT=000000a9
    TIDV=00000008  TXDMAC=00000000  TXDCTL=01010000    TADV=00000020   TSPMT=01000400
 Management registers ---------------------------------------------------------------
     WUC=00000000    WUFC=00000000     WUS=00000000
@@ -64,7 +64,7 @@ PHY registers ------------------------------------------------------------------
 
 PHY MDIO: state=MDIO_IDLE acc=0 cnt=0 addr=0
 
-E1000 #1: port=d040 mmio=00000000e4820000 mac-cfg=08:00:27:00:55:45 82540EM R0
+E1000 #1: port=d040 mmio=00000000e4820000 mac-cfg=08:00:27:cc:af:63 82540EM R0
 General registers ------------------------------------------------------------------
    CTRL=48000249  STATUS=00000083    EECD=00000140    EERD=00000000  LEDCTL=07068302
     FLA=00000000    MDIC=18350000                                  CTRL_EXT=00000000
@@ -74,11 +74,11 @@ Interrupt registers ------------------------------------------------------------
     ICR=00000000     ITR=000000c3     ICS=00000000     IMS=0000009d     IMC=00000000
 Receive registers ------------------------------------------------------------------
    RCTL=00008002  PSRCTL=00040402   FCRTL=00000000   FCRTH=00000000  RXDCTL=00000000
-  RDBAL=0544e000   RDBAH=00000000   RDLEN=00001000     RDH=0000000b     RDT=00000009
+  RDBAL=0304d000   RDBAH=00000000   RDLEN=00001000     RDH=0000000b     RDT=00000009
    RDTR=00000000    RADV=00000008   RSRPD=00000000  RXCSUM=00000200   RFCTL=00000000
 Transmit registers -----------------------------------------------------------------
    TCTL=0103f0fa    TIPG=00602008    AIFS=00000000
-  TDBAL=1a4bc000   TDBAH=00000000   TDLEN=00001000     TDH=00000032     TDT=00000032
+  TDBAL=0304b000   TDBAH=00000000   TDLEN=00001000     TDH=00000023     TDT=00000023
    TIDV=00000008  TXDMAC=00000000  TXDCTL=01010000    TADV=00000020   TSPMT=01000400
 Management registers ---------------------------------------------------------------
     WUC=00000000    WUFC=00000000     WUS=00000000
@@ -103,10 +103,10 @@ Diagnostic registers -----------------------------------------------------------
    RDFH=00000000    RDFT=00000000   RDFHS=00000000   RDFTS=00000000   RDFPC=00000000
    TDFH=00000000    TDFT=00000000   TDFHS=00000000   TDFTS=00000000   TDFPC=00000000
 
-RA00: DST 08:00:27:00:55:45
+RA00: DST 08:00:27:cc:af:63
 RA01: DST 33:33:00:00:00:01
 RA02: DST 01:00:5e:00:00:01
-RA03: DST 33:33:ff:00:55:45
+RA03: DST 33:33:ff:cc:af:63
 RA04: DST 01:80:c2:00:00:00
 RA05: DST 01:80:c2:00:00:03
 RA06: DST 01:80:c2:00:00:0e
