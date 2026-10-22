@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: development
+  namespace: argocd
+spec:
+  sourceRepos:
+    - https://github.com/BL4KCY/IoT-42-assignment.git
+  destinations:
+    - namespace: dev
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
