@@ -6,13 +6,7 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure("2") do |config|
-  # The most common configuration options are documented and commented below.
-  # For a complete reference, please see the online documentation at
-  # https://docs.vagrantup.com.
-
-  # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://vagrantcloud.com/search.
-  config.vm.define "oait-bou" do |oait_bou|
+  config.vm.define "oait-bouS" do |oait_bou|
     oait_bou.vm.box = "bento/ubuntu-24.04"
     oait_bou.vm.hostname = "oait-bouS"
     oait_bou.vm.network "private_network", ip: "192.168.56.110"

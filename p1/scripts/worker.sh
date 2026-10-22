@@ -11,9 +11,10 @@ done
 
 K3S_TOKEN=$(cat /vagrant/k3s-token)
 
-curl -sfL https://get.k3s.io | \
-    K3S_URL="https://${SERVER_IP}:6443" \
-    K3S_TOKEN="$K3S_TOKEN" \
-    sh -
+export K3S_URL="https://${SERVER_IP}:6443"
+export K3S_TOKEN
 
+curl -sfL https://get.k3s.io -o install-k3s.sh
+
+sh install-k3s.sh
 echo "K3s Agent joined the cluster."

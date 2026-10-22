@@ -5,9 +5,10 @@
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
+
 Vagrant.configure("2") do |config|
 
-  config.vm.define "oait-bou" do |oait_bou|
+  config.vm.define "oait-bouS" do |oait_bou|
     oait_bou.vm.box = "bento/ubuntu-24.04"
     oait_bou.vm.hostname = "oait-bouS"
     oait_bou.vm.network "private_network", ip: "192.168.56.110"
@@ -20,7 +21,7 @@ Vagrant.configure("2") do |config|
     oait_bou.vm.provision "shell", path: "scripts/install_ssh_keys.sh"
   end
 
-  config.vm.define "vm2" do |vm2|
+  config.vm.define "oait-bouSW" do |vm2|
     vm2.vm.box = "bento/ubuntu-24.04"
     vm2.vm.hostname = "oait-bouSW"
     vm2.vm.network "private_network", ip: "192.168.56.111"
@@ -33,6 +34,7 @@ Vagrant.configure("2") do |config|
     vm2.vm.provision "shell", path: "scripts/install_ssh_keys.sh"
   end
 end
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.

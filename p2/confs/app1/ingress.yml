@@ -17,13 +17,4 @@ spec:
                 name: app1-service
                 port:
                   number: 80
-    # Direct IP requests and unknown hostnames use app1.
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: app1-service
-                port:
-                  number: 80
+
