@@ -60,6 +60,6 @@ kubectl apply -f projects/development.yaml
 kubectl apply -f application.yaml
 
 # bonus part
-kubectl create namespace gitlab
-kubectl apply -f bonus/gitlab/deployment.yaml -n gitlab
-kubectl apply -f bonus/gitlab/service.yaml -n gitlab
+# kubectl create namespace gitlab
+# kubectl apply -f bonus/gitlab/deployment.yaml -n gitlab
+# kubectl apply -f bonus/gitlab/service.yaml -n gitlab
