@@ -16,5 +16,5 @@ export K3S_TOKEN
 
 curl -sfL https://get.k3s.io -o install-k3s.sh
 
-sh install-k3s.sh
+INSTALL_K3S_EXEC="agent --node-ip=192.168.56.111 --flannel-iface=eth1" sh install-k3s.sh
 echo "K3s Agent joined the cluster."

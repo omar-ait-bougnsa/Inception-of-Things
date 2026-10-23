@@ -26,5 +26,6 @@ spec:
               readOnly: true
       volumes:
         - name: app1-html
-          configMap:
-            name: app1-html
+          hostPath:
+            path: /vagrant/confs/app1
+            type: Directory

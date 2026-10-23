@@ -9,7 +9,7 @@
 Vagrant.configure("2") do |config|
 
   config.vm.define "oait-bouS" do |oait_bou|
-    oait_bou.vm.box = "bento/ubuntu-24.04"
+    oait_bou.vm.box = "bento/ubuntu-26.04"
     oait_bou.vm.hostname = "oait-bouS"
     oait_bou.vm.network "private_network", ip: "192.168.56.110"
     oait_bou.vm.provider "virtualbox" do |vb|
@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "oait-bouSW" do |vm2|
-    vm2.vm.box = "bento/ubuntu-24.04"
+    vm2.vm.box = "bento/ubuntu-26.04"
     vm2.vm.hostname = "oait-bouSW"
     vm2.vm.network "private_network", ip: "192.168.56.111"
     vm2.vm.provider "virtualbox" do |vb|
