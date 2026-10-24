@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitlab
+spec:
+  selector:
+    matchLabels:
+      app: gitlab
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gitlab
+    spec:
+      containers:
+      - name: gitlab
+        image: gitlab/gitlab-ce
+        ports:
+        - containerPort: 80
+          name: http-svc-port
+        env:
+          - name: GITLAB_OMNIBUS_CONFIG
+            value: |
+              external_url 'http://gitlab.gitlab.svc.cluster.local';
+              gitlab_rails['lfs_enabled'] = true;
+          - name: GITLAB_ROOT_PASSWORD
+            value: "Password@@22"
