@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 
 #default password if .env not exists
-ARGOCD_PASSWORD='default-change-me'
-# source .env if it's exists
-if [ -f .env ]; then
-    source .env
-fi
+ARGOCD_PASSWORD=Password@@22
 
 # installing k3d if not exist
 k3d --version || curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
@@ -13,9 +9,9 @@ k3d --version || curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/insta
 #create cluster node
 k3d cluster create mycluster\
 	--port 8888:30000@loadbalancer\
+	--port 8889:30001@loadbalancer\
 	--port 8080:30443@loadbalancer\
-	--port 8081:30081@loadbalancer\
-	--port 2222:32222@loadbalancer
+	--port 30081:30081@loadbalancer
 													
 
 # download and install kubectl in not exist
@@ -45,7 +41,7 @@ kubectl -n argocd patch svc argocd-server -p \
 # waiting until argocd is available
 echo "waiting argocd until is available..."
 kubectl wait --for=condition=available deployment/argocd-server -n argocd --timeout=300s
-
+sleep 5
 # argocd cli login
 ARGOCD_DEFAULT_PASS=$(kubectl -n argocd get secret argocd-initial-admin-secret \
   -o jsonpath="{.data.password}" | base64 -d)
@@ -56,10 +52,5 @@ argocd login 127.0.0.1:8080 --insecure --username admin --password "$ARGOCD_DEFA
 argocd account update-password   --current-password $ARGOCD_DEFAULT_PASS --new-password $ARGOCD_PASSWORD
 
 # init the development project
-kubectl apply -f projects/development.yaml
-kubectl apply -f application.yaml
-
-# bonus part
-# kubectl create namespace gitlab
-# kubectl apply -f bonus/gitlab/deployment.yaml -n gitlab
-# kubectl apply -f bonus/gitlab/service.yaml -n gitlab
+kubectl apply -f p3/manifests/app-project.yaml
+kubectl apply -f p3/manifests/application.yaml

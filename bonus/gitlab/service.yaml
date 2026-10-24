@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gitlab
+spec:
+  type: LoadBalancer
+  selector:
+    app: gitlab
+  ports:
+  - port: 80
+    name: gitlab
+    targetPort: http-svc-port
+    nodePort: 30081
